@@ -1,0 +1,15 @@
+﻿2018-06-05 20:15:08,155|[1]|INFO  SystemLogger - Executing data migration...
+2018-06-05 20:15:14,037|[1]|ERROR SystemLogger - Entity of type "Employee" in state "Added" has the following validation errors:
+2018-06-05 20:15:14,038|[1]|ERROR SystemLogger - - Property: "SiteId", Error: "The SiteId field is required."
+2018-06-05 20:15:14,082|[1]|ERROR SystemLogger - Initial data error: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+2018-06-05 20:15:14,132|[1]|ERROR SystemLogger - MigrateDatabaseToLatestVersion  Failed message: An exception occurred while initializing the database. See the InnerException for details., StackTrace：   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at Lis.WebApi.MvcApplication.AutoMigrationDbToLatestVersion() in D:\LIS\src\Lis.WebApi\Global.asax.cs:line 42
+2018-06-05 20:15:14,132|[1]|INFO  SystemLogger - Data migration executed.
+2018-06-05 20:20:25,805|[1]|INFO  SystemLogger - Executing data migration...
+2018-06-05 20:20:32,508|[1]|INFO  SystemLogger - ===============>    Seed_1.0.0.2 executed successful!
+2018-06-05 20:20:32,513|[1]|INFO  SystemLogger - Data migration executed.
+2018-06-05 21:16:32,722|[1]|INFO  SystemLogger - Executing data migration...
+2018-06-05 21:16:39,539|[1]|INFO  SystemLogger - Data migration executed.
+2018-06-05 21:55:35,883|[1]|INFO  SystemLogger - Executing data migration...
+2018-06-05 21:55:44,481|[1]|INFO  SystemLogger - Data migration executed.

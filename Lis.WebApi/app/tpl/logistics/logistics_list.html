@@ -1,0 +1,41 @@
+<!-- <div class="bg-light lter b-b wrapper-md table-header">
+    <h1 class="m-n font-thin h3" translate="nav.crisis_manage"></h1>
+</div> -->
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading font-bold" translate="nav.logistics_manage">
+        </div>
+        <div class="panel-body">
+            <form class="form-inline">
+                <div class="form-group">
+                    <!-- <label >名称</label> -->
+                    <input class="form-control" ng-model="filterValue" placeholder="{{filter_tip}}">
+                </div>
+                <div class="form-group filter-item" ng-hide="true">
+                        <ui-select 
+                                    ng-model="model.selectedSite" 
+                                    theme="bootstrap" 
+                                    ng-disabled="false" 
+                                    search-enabled="true"
+                                    required>
+                            <ui-select-match placeholder="选择机构名称">
+                                <span ng-bind="$select.selected.miName"></span>
+                            </ui-select-match>
+                            <ui-select-choices group-by="'group'" repeat="item in siteList | filter: $select.search">
+                                <span ng-bind-html="item.miName | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                </div>
+
+                <button ng-click="search()" class="btn btn-default grid-search" translate="button.search"></button>
+                <button ng-click="openAcceptDialog()" class="btn btn-primary right" translate="button.accept_sample"></button>
+                <button ng-click="openSendDialog()" class="btn btn-primary right" translate="button.send_sample"></button>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+            <div class="panel-body list-con">
+                    <div class="list-sty" ui-grid="gridOptions"></div>
+            </div>
+        </div>
+</div>

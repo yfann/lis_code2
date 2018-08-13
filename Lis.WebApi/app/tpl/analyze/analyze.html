@@ -1,0 +1,79 @@
+<!-- <div class="bg-light lter b-b wrapper-md table-header">
+    <h1 class="m-n font-thin h3" translate="nav.crisis_manage"></h1>
+</div> -->
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading font-bold" translate="nav.analyze">
+        </div>
+        <div class="panel-body">
+            <form class="form-inline">
+                <div class="form-inline-group">
+                    <div class="form-group">
+                        <div class="input-group w-sm">
+                            <input type="text" class="form-control" datepicker-popup="yyyy/MM/dd" ng-model="model.startTime" is-open="model.startOpened"
+                                datepicker-options="dateOptions" close-text="Close" placeholder="开始申请时间" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="startOpen($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <span class="dash">-</span>
+                    <div class="form-group">
+                        <div class="input-group w-sm">
+                            <input type="text" class="form-control" datepicker-popup="yyyy/MM/dd" ng-model="model.endTime" is-open="model.endOpened"
+                                datepicker-options="dateOptions" close-text="Close" placeholder="结束申请时间" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="endOpen($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group filter-item">
+                    <ui-select ng-model="model.selectedSite" theme="bootstrap" ng-disabled="false" search-enabled="true" required>
+                        <ui-select-match placeholder="选择机构名称">
+                            <span ng-bind="$select.selected.miName"></span>
+                        </ui-select-match>
+                        <ui-select-choices group-by="'group'" repeat="item in siteList | filter: $select.search">
+                            <span ng-bind-html="item.miName | highlight: $select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <div class="form-group filter-item">
+                        <ui-select ng-model="model.selectedSampleType" theme="bootstrap" ng-disabled="false" search-enabled="true" required>
+                            <ui-select-match placeholder="样本类型">
+                                <span ng-bind="$select.selected.chtName"></span>
+                            </ui-select-match>
+                            <ui-select-choices group-by="'group'" repeat="item in sampleTypeList | filter: $select.search">
+                                <span ng-bind-html="item.chtName | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+
+                <button ng-click="search()" class="btn btn-default grid-search" translate="button.search"></button>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default" ng-repeat="item in model.resultList track by $index">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-md-1 control-label col-md-offset-1">机构名称：</label>
+                <div class="col-md-1">
+                    <label class="control-label">{{item.miName}}</label>
+                </div>
+                <label class="col-sm-1 control-label">样本类型：</label>
+                <div class="col-md-1">
+                    <label class="control-label">{{item.sampleTypeName}}</label>
+                </div>
+                <label class="col-sm-1 control-label">申请单数：</label>
+                <div class="col-md-1">
+                    <label class="control-label">{{item.requestCount}}</label>
+                </div>
+            </div>
+            <div class="line line-dashed b-b line-lg pull-in"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+<div class="labresult-print">
+    <style type="text/css" media="print">
+        .print-button {
+            display: none;
+        }
+    </style>
+    <button class="print-button" onclick="window.print()">打印</button>
+    <button class="print-button" ng-click="downloadPDF()" style="left:150px;">下载</button>
+    <table class="table">
+        <tr>
+            <th colspan="6" class="title">
+                <label>检验报告单({{model.setName}})</label>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <label class="label-name">姓名：</label>
+                <label class="label-name">{{model.patientName}}</label>
+            </td>
+            <td>
+                <label class="label-name">年龄：</label>
+                <label class="label-name">{{model.age}}</label>
+            </td>
+            <td>
+                <label class="label-name">性别：</label>
+                <label class="label-name">{{model.gender}}</label>
+            </td>
+            <td>
+                <label class="label-name">床号：</label>
+                <label class="label-name">{{model.bedNo}}</label>
+            </td>
+            <td>
+                <label class="label-name">申请医生：</label>
+                <label class="label-name">{{model.applicationDoctor}}</label>
+            </td>
+            <td>
+                <label class="label-name">申请时间：</label>
+                <label class="label-name">{{model.formatedApplicationTime}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="label-name">科室：</label>
+                <label class="label-name">{{model.dept}}</label>
+            </td>
+            <td>
+                <label class="label-name">类别：</label>
+                <label class="label-name">{{model.category}}</label>
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+                <label class="label-name">备注：</label>
+                <label class="label-name">{{model.comment}}</label>
+            </td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr class="list-header">
+            <th>
+                <label class="label-name">序号</label>
+            </th>
+            <th>
+                <label class="label-name">代码</label>
+            </th>
+            <th>
+                <label class="label-name">项目名称</label>
+            </th>
+            <th>
+                <label class="label-name">检验结果值</label>
+            </th>
+            <th>
+                <label class="label-name">结果范围值</label>
+            </th>
+            <th>
+                <label class="label-name">检验结果单位</label>
+            </th>
+        </tr>
+        <tr ng-repeat="item in model.details track by $index">
+            <td>
+                <label class="label-name">{{$index}}</label>
+            </td>
+            <td>
+                <label class="label-name">{{item.labItem.itemCode}}</label>
+            </td>
+            <td>
+                <label class="label-name">{{item.labItem.itemName}}</label>
+            </td>
+            <td>
+                <label class="label-name {{item.isRed?'red':''}}">{{item.labResult.resultValue}}</label>
+            </td>
+            <td>
+                <label class="label-name">{{item.isRange?item.labResult.refRange:item.labResult.refLo+" - "+item.labResult.refHi}}</label>
+            </td>
+            <td>
+                <label class="label-name">{{item.labResult.unit}}</label>
+            </td>
+        </tr>
+    </table>
+    <div class="print-footer">
+        <div class="item">
+            <label class="label-name">送检时间：</label>
+            <label class="label-name">{{model.formatedSendTime}}</label>
+        </div>
+        <div class="item">
+            <label class="label-name">报告时间：</label>
+            <label class="label-name">{{model.formatedReportTime}}</label>
+        </div>
+        <div class="item">
+            <label class="label-name">送检人：</label>
+            <label class="label-name">{{model.approvaler}}</label>
+        </div>
+        <div class="item">
+            <label class="label-name">审核人：</label>
+            <label class="label-name">{{model.inspector}}</label>
+        </div>
+    </div>
+</div>

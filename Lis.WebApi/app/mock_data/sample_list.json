@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "sampleNo": "xxxxxxxxxxxxx",
+        "sendEmp":"HuHu",
+        "sendTime":"2008-01-01",
+        "lsStatus":"物流已接收"
+    },
+    {
+        "id": 1,
+        "sampleNo": "llllllll",
+        "sendEmp":"HuHu2",
+        "sendTime":"2008-01-01",
+        "lsStatus":"物流已接收"
+    },
+    {
+        "id": 1,
+        "sampleNo": "vvvvvvvvvvvvvv",
+        "sendEmp":"HuHu3",
+        "sendTime":"2008-01-01",
+        "lsStatus":"物流已接收"
+    },
+    {
+        "id": 1,
+        "sampleNo": "dddddddddddd",
+        "sendEmp":"HuHu4",
+        "sendTime":"2008-01-01",
+        "lsStatus":"检验中心已接收"
+    }
+]

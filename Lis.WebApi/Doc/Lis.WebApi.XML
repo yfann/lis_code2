@@ -1,0 +1,534 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lis.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Lis.WebApi.UnityConfig">
+            <summary>
+            Specifies the Unity configuration for the main container.
+            </summary>
+        </member>
+        <member name="P:Lis.WebApi.UnityConfig.Container">
+            <summary>
+            Configured Unity Container.
+            </summary>
+        </member>
+        <member name="M:Lis.WebApi.UnityConfig.RegisterTypes(Unity.IUnityContainer)">
+            <summary>
+            Registers the type mappings with the Unity container.
+            </summary>
+            <param name="container">The unity container to configure.</param>
+            <remarks>
+            There is no need to register concrete types such as controllers or
+            API controllers (unless you want to change the defaults), as Unity
+            allows resolving a concrete type even if it was not previously
+            registered.
+            </remarks>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SyncRequest(Lis.Service.Dtos.RequestDto)">
+            <summary>
+            申请单同步
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SyncReport(Lis.Service.Dtos.ReportDto)">
+            <summary>
+            检验报告同步
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SyncUploadReport(Lis.Service.Dtos.ReportDto)">
+            <summary>
+            上传报告（非送检）同步
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SyncMi(Lis.Service.Models.Integration.MiModel)">
+            <summary>
+            医疗机构信息同步
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SyncDept(Lis.Service.Models.Integration.DeptModel)">
+            <summary>
+            科室信息同步
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SyncUser(Lis.Service.Models.Integration.UserModel)">
+            <summary>
+            用户信息同步
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SyncMobile(Lis.Service.Models.Integration.ChangeMobileModel)">
+            <summary>
+            修改手机号
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SyncPassword(Lis.Service.Models.Integration.ChangePasswordModel)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SearchRequests(System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String)">
+            <summary>
+            搜索申请单信息
+            </summary>
+            <param name="search">搜索的关键字，支持申请单号、病人姓名</param>
+            <param name="from">可选参数：申请单开始日期</param>
+            <param name="to">可选参数：申请单日期日期</param>
+            <param name="miId">申请单所属机构ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.GetRequestDetail(System.String)">
+            <summary>
+            获取申请单详细信息
+            </summary>
+            <param name="id">申请单ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.AcceptRequest(Lis.Service.Dtos.RequestDto)">
+            <summary>
+            申请单接收
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.RefuseRequest(Lis.Service.Dtos.RequestDto)">
+            <summary>
+            申请单拒绝
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.GetLabReport(System.String)">
+            <summary>
+            获取检验报告数据
+            </summary>
+            <param name="id">申请单ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.GetReport(System.String)">
+            <summary>
+            获取检验报告详情
+            </summary>
+            <param name="id">检验报告ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.GetAllExamReports(System.String,System.String,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            获取所有送检报告
+            </summary>
+            <param name="search">搜索关键字：组合名称、患者姓名、HidID</param>
+            <param name="miInfo">机构ID或名称</param>
+            <param name="reqDate">申请时间</param>
+            <param name="patientId">病人编码</param>
+            <param name="requestNo">申请单号</param>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SendLogistics(Lis.Service.Models.LogisticsModel)">
+            <summary>
+            样本送检
+            </summary>
+            <param name="source"></param>
+            <returns>返回 本次物流报表数据</returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.ReceiveLogistics(Lis.Service.Models.LogisticsModel)">
+            <summary>
+            样本接收
+            </summary>
+            <param name="source"></param>
+            <returns>返回 本次物流报表数据</returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SearchLogistics(System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            物流信息查询
+            </summary>
+            <param name="from">开始日期（中心接收时间）</param>
+            <param name="to">结束日期（中心接收时间）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.GetSampleReport(System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            样本类型统计（按样本类型、机构分组）
+            </summary>
+            <param name="from">申请时间 - 开始</param>
+            <param name="to">申请时间 - 结束</param>
+            <param name="mi">机构ID或名称</param>
+            <param name="sampleType">样本类型ID或名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.LisController.SearchLogistics(System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            检验报告查询
+            </summary>
+            <param name="patientName"></param>
+            <param name="idCard"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetSystemTime">
+            <summary>
+            获取服务器时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.Login(Lis.Service.Models.LoginModel)">
+            <summary>
+            登录验证
+            </summary>
+            <param name="data">登录参数</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.ValidateToken(System.String)">
+            <summary>
+            Token验证
+            </summary>
+            <param name="token"></param>
+            <returns>true:验证通过，false:验证失败</returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.ChangePassword(System.String,System.String,System.String)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="userId">用户ID</param>
+            <param name="srcPwd">原密码</param>
+            <param name="newPwd">新密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateMedicalInstitution(Lis.Service.Dtos.MedicalInstitutionDto)">
+            <summary>
+            医疗机构信息维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.DeleteMedicalInstitution(Lis.Service.Dtos.MedicalInstitutionDto)">
+            <summary>
+            删除医疗机构
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetAllMedicalInstitutions(System.String,System.String)">
+            <summary>
+            医疗机构信息查询
+            </summary>
+            <param name="search">搜索关键字</param>
+            <param name="parent">上级机构ID或者上级机构名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetMedicalInstitutionDetail(System.String)">
+            <summary>
+            获取医疗机构明细信息
+            </summary>
+            <param name="id">医疗机构ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateDepartment(Lis.Service.Dtos.DepartmentDto)">
+            <summary>
+            部门信息维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.DeleteDepartment(Lis.Service.Dtos.DepartmentDto)">
+            <summary>
+            删除部门
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetAllDepartments(System.String,System.String)">
+            <summary>
+            部门信息查询
+            </summary>
+            <param name="search">搜索关键字</param>
+            <param name="org">所属医疗机构ID或者名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetDepartmentDetail(System.String)">
+            <summary>
+            获取部门明细信息
+            </summary>
+            <param name="id">部门ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateEmployee(Lis.Service.Dtos.EmployeeDto)">
+            <summary>
+            用户信息维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.DeleteEmployee(Lis.Service.Dtos.EmployeeDto)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.SearchEmployees(System.String)">
+            <summary>
+            搜索用户
+            </summary>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetEmployeeDetail(System.String)">
+            <summary>
+            获取用户详细信息
+            </summary>
+            <param name="id">用户ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateSampleType(Lis.Service.Dtos.SampleTypeDto)">
+            <summary>
+            样本类型维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.DeleteSampleType(Lis.Service.Dtos.SampleTypeDto)">
+            <summary>
+            删除样本类型
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.SearchSampleTypes(System.String)">
+            <summary>
+            搜索样本类型
+            </summary>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetSampleTypeDetail(System.String)">
+            <summary>
+            获取样本类型详细信息
+            </summary>
+            <param name="id">样本类型ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateQcValue(Lis.Service.Dtos.QcValueDto)">
+            <summary>
+            质控维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.DeleteQcValue(Lis.Service.Dtos.QcValueDto)">
+            <summary>
+            删除质控
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.SearchQcValues(System.String)">
+            <summary>
+            搜索质控
+            </summary>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetQcValueDetail(System.String)">
+            <summary>
+            获取质控详情
+            </summary>
+            <param name="id">质控ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateCrisis(Lis.Service.Dtos.CrisisDto)">
+            <summary>
+            危急值维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.DeleteCrisis(Lis.Service.Dtos.CrisisDto)">
+            <summary>
+            删除危急值
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.SearchCrisiss(System.String)">
+            <summary>
+            搜索危急值
+            </summary>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetCrisisDetail(System.String)">
+            <summary>
+            获取危急值详情
+            </summary>
+            <param name="id">危急值ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateLabItem(Lis.Service.Dtos.LabItemDto)">
+            <summary>
+            检验项目维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.DeleteLabItem(Lis.Service.Dtos.LabItemDto)">
+            <summary>
+            删除检验项目
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.SearchLabItems(System.String)">
+            <summary>
+            搜索检验项目
+            </summary>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetLabItemDetail(System.String)">
+            <summary>
+            获取检验项目详情
+            </summary>
+            <param name="id">检验项目ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateLabItemSet(Lis.Service.Dtos.LabItemSetDto)">
+            <summary>
+            检验项目组合维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.DeleteLabItemSet(Lis.Service.Dtos.LabItemSetDto)">
+            <summary>
+            删除检验项目组合
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.SearchLabItemSets(System.String)">
+            <summary>
+            搜索检验项目组合
+            </summary>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetLabItemSetDetail(System.String)">
+            <summary>
+            获取检验项目组合详情
+            </summary>
+            <param name="id">检验项目组合ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateLabCategory(Lis.Service.Dtos.LabCategoryDto)">
+            <summary>
+            检验项目分类维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.DeleteLabCategory(Lis.Service.Dtos.LabCategoryDto)">
+            <summary>
+            删除检验项目分类
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.SearchLabCategorys(System.String)">
+            <summary>
+            搜索检验项目分类
+            </summary>
+            <param name="search"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.GetLabCategoryDetail(System.String)">
+            <summary>
+            获取检验项目分类目详情
+            </summary>
+            <param name="id">检验项目分类ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Controllers.SystemController.AddOrUpdateLabResult(System.Collections.Generic.List{Lis.Service.Dtos.LabInfoDto})">
+            <summary>
+            检验结果数据维护
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Lis.WebApi.Filters.ExceptionHandlingAttribute">
+            <summary>
+            Handle uncatched exception.
+            The WebApi default behavior will pass the detail exception information to client, include stack trace, 
+            which is very heavy, and may contain sensitive information.
+            Here generate the simple and necessary information to client.
+            </summary>
+        </member>
+        <member name="T:Lis.WebApi.Utils.HttpRequestMessageExtensions">
+            <summary>
+            Extends the HttpRequestMessage collection
+            </summary>
+        </member>
+        <member name="M:Lis.WebApi.Utils.HttpRequestMessageExtensions.GetQueryStrings(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Returns a dictionary of QueryStrings that's easier to work with 
+            than GetQueryNameValuePairs KevValuePairs collection.
+            
+            If you need to pull a few single values use GetQueryString instead.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Utils.HttpRequestMessageExtensions.GetQueryString(System.Net.Http.HttpRequestMessage,System.String)">
+            <summary>
+            Returns an individual querystring value
+            </summary>
+            <param name="request"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Utils.HttpRequestMessageExtensions.GetHeader(System.Net.Http.HttpRequestMessage,System.String)">
+            <summary>
+            Returns an individual HTTP Header value
+            </summary>
+            <param name="request"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Utils.HttpRequestMessageExtensions.GetCookie(System.Net.Http.HttpRequestMessage,System.String)">
+            <summary>
+            Retrieves an individual cookie from the cookies collection
+            </summary>
+            <param name="request"></param>
+            <param name="cookieName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lis.WebApi.Utils.HttpRequestMessageExtensions.GetClientIp(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Returns IP4Address of request client
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSH.HCIS.Ucc.WebApi.Controllers.HomeController.BaoGaoHtml(System.String,System.String,System.String)">
+            <summary>
+            html转pdf
+            </summary>
+            <param name="filePath">文件存储路径</param>
+            <param name="reportId">报告ID</param>
+            <param name="uri"></param>
+        </member>
+    </members>
+</doc>

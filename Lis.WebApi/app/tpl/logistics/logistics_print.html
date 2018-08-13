@@ -1,0 +1,61 @@
+<div class="logistics-print">
+    <table class="table">
+        <tr>
+            <th colspan="2" class="title">
+                <label>{{model.title}}</label>
+            </th>
+        </tr>
+        <tr ng-hide="model.isReceive">
+            <td>
+                <label class="label-name labe-left">送检人：</label>
+            </td>
+            <td>
+                <label class="label-name labe-right">{{model.sendEm}}</label>
+            </td>
+        </tr>
+        <tr ng-hide="model.isReceive">
+            <td>
+                <label class="label-name labe-left">物流接收人：</label>
+            </td>
+            <td>
+                <label class="label-name labe-right">{{model.lsEm}}</label>
+            </td>
+        </tr>
+        <tr ng-hide="model.isSend">
+            <td>
+                <label class="label-name labe-left">检验中心接收人：</label>
+
+            </td>
+            <td>
+                <label class="label-name labe-right">{{model.centerEm}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="label-name labe-left">{{model.receiveTimeLabel}}</label>
+
+            </td>
+            <td>
+                <label class="label-name labe-right">{{model.receiveTime}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="label-name labe-left">物流状态：</label>
+
+            </td>
+            <td>
+                <label class="label-name labe-right">{{model.status}}</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="label-name labe-left">扫码单号：</label>
+            </td>
+            <td>
+                <div class="labe-right labe-item" ng-repeat="item in model.barCodes track by $index">{{item}}</div>
+            </td>
+        </tr>
+
+    </table>
+</div>

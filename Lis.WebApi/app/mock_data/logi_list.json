@@ -1,0 +1,26 @@
+[
+    {
+        "sampleNo":"ssss",
+        "sendEmp":"boy",
+        "sendTime":"2018-01-01",
+        "lsStatus":"1"
+    },
+    {
+        "sampleNo":"ssss01",
+        "sendEmp":"boy01",
+        "sendTime":"2018-01-01",
+        "lsStatus":"1"
+    },
+    {
+        "sampleNo":"ssss02",
+        "sendEmp":"boy02",
+        "sendTime":"2018-01-01",
+        "lsStatus":"1"
+    },
+    {
+        "sampleNo":"ssss03",
+        "sendEmp":"boy03",
+        "sendTime":"2018-01-01",
+        "lsStatus":"1"
+    }
+]

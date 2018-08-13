@@ -1,0 +1,15 @@
+<div class="common-dialog reject-dialog">
+    <form name="form" class="form-horizontal form-validation">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">拒绝原因</label>
+            <div class="col-md-8">
+                <textarea ng-model="rejectReason" class="form-control" rows="6" required></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+                <button class="btn btn-primary" translate="button.confirm" ng-click="dialogSubmit()" ng-disabled="form.$invalid"></button>
+            </div>
+        </div>
+    </form>
+</div>

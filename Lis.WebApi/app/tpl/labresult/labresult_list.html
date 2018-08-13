@@ -1,0 +1,63 @@
+<!-- <div class="bg-light lter b-b wrapper-md table-header">
+    <h1 class="m-n font-thin h3" translate="nav.crisis_manage"></h1>
+</div> -->
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading font-bold" translate="nav.labresult">
+        </div>
+        <div class="panel-body">
+            <form class="form-inline">
+                <div class="form-group">
+                    <!-- <label >名称</label> -->
+                    <input class="form-control" ng-model="filterValue" placeholder="{{filter_tip}}">
+                </div>
+                <div class="form-group filter-item">
+                        <ui-select 
+                                    ng-model="model.selectedSite" 
+                                    theme="bootstrap" 
+                                    ng-disabled="false" 
+                                    search-enabled="true"
+                                    required>
+                            <ui-select-match placeholder="送检机构">
+                                <span ng-bind="$select.selected.miName"></span>
+                            </ui-select-match>
+                            <ui-select-choices group-by="'group'" repeat="item in siteList | filter: $select.search">
+                                <span ng-bind-html="item.miName | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                </div>
+
+                <div class="form-group filter-item">
+                    <!-- <label >名称</label> -->
+                    <input class="form-control" ng-model="model.patientNo" placeholder="病人编码">
+                </div>
+
+                <div class="form-group filter-item">
+                    <!-- <label >名称</label> -->
+                    <input class="form-control" ng-model="model.reqNo" placeholder="申请单号">
+                </div>
+
+                <div class="form-inline-group filter-item">
+                    <div class="form-group">
+                        <div class="input-group w-sm">
+                            <input type="text" class="form-control" datepicker-popup="yyyy/MM/dd" ng-model="model.reqTime" is-open="model.startOpened" datepicker-options="dateOptions"
+                                close-text="Close" placeholder="申请时间"/>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="startOpen($event)">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <button ng-click="search()" class="btn btn-default grid-search" translate="button.search"></button>
+                <!-- <button ng-click="create()" class="btn btn-primary right" translate="button.create"></button> -->
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+            <div class="panel-body list-con">
+                    <div class="list-sty" ui-grid="gridOptions"></div>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,42 @@
+<!-- navbar left header -->
+<div class="navbar-header">
+  <span class="navbar-title" translate="header.title"></span>
+</div>
+
+<!-- navbar collapse -->
+<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+
+  <!-- <div class="nav navbar-nav navbar-subtitle"  translate="nav.request_manage"></div> -->
+  <!-- user menu -->
+  <div class="nav navbar-nav navbar-right navbar-rightspace">
+    <!-- login -->
+    <li class="dropdown" dropdown>
+      <a href class="dropdown-toggle clear" dropdown-toggle>
+        <span class="hidden-sm hidden-md">{{app.user.emName}}</span>
+        <b class="caret"></b>
+      </a>
+      <!-- dropdown -->
+      <ul class="dropdown-menu animated fadeInRight w">
+        <!-- <li>
+          <a ui-sref="app.admin.setting">
+            <span translate="header.user.setting">个人设置</span>
+          </a>
+        </li> -->
+        <li>
+          <a ui-sref="app.change_pwd">
+            <span translate="header.user.edit_pwd">修改密码</span>
+          </a>
+        </li>
+        <!-- <li>
+          <a translate="header.user.lockme">锁屏</a>
+        </li> -->
+        <li class="divider"></li>
+        <li>
+          <a ng-click="logout()">注销登录</a>
+        </li>
+      </ul>
+      <!-- / dropdown -->
+    </li>
+  </div>
+
+</div>

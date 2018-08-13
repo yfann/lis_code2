@@ -1,0 +1,56 @@
+
+<div class="wrapper-md">
+    <div class="panel panel-default">
+        <div class="panel-heading font-bold" translate="nav.department_manage">
+        </div>
+        <div class="panel-body">
+            <form name="form" class="form-horizontal form-validation">
+                <div class="form-group select-group">
+                    <label class="col-sm-2 control-label required">医疗机构</label>
+                    <div class="col-md-4">
+                        <ui-select ng-model="model.selectedSite" 
+                                   theme="bootstrap" 
+                                   ng-disabled="false" 
+                                   search-enabled="true"
+                                   required>
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.miName"></span>
+                            </ui-select-match>
+                            <ui-select-choices group-by="'group'" repeat="item in siteList | filter: $select.search">
+                                <span ng-bind-html="item.miName | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">科室编码</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" ng-model="model.deptCode">
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label required">科室名称</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" ng-model="model.deptName" required>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label required">简介描述</label>
+                    <div class="col-md-4">
+                        <textarea class="form-control" rows="6" ng-model="model.desc" required></textarea>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <button class="btn btn-primary" translate="button.save" ng-click="submit()" ng-disabled="form.$invalid"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

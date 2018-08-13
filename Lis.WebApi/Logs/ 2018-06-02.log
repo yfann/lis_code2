@@ -1,0 +1,8 @@
+﻿2018-06-02 01:10:09,379|[1]|INFO  SystemLogger - Executing data migration...
+2018-06-02 01:10:13,713|[1]|ERROR SystemLogger - Entity of type "Employee" in state "Added" has the following validation errors:
+2018-06-02 01:10:13,713|[1]|ERROR SystemLogger - - Property: "SiteId", Error: "The SiteId field is required."
+2018-06-02 01:10:13,741|[1]|ERROR SystemLogger - Initial data error: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+2018-06-02 01:10:13,778|[1]|ERROR SystemLogger - MigrateDatabaseToLatestVersion  Failed message: An exception occurred while initializing the database. See the InnerException for details., StackTrace：   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at Lis.WebApi.MvcApplication.AutoMigrationDbToLatestVersion() in D:\LIS\src\Lis.WebApi\Global.asax.cs:line 42
+2018-06-02 01:10:13,778|[1]|INFO  SystemLogger - Data migration executed.

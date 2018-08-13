@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>LIS - 自动登录</title>
+</head>
+<body>
+    <div class="container w-xxl w-auto-xs per100">
+        <style>
+            .per100 {
+                width: 100% !important;
+            }
+        </style>
+        <div style="text-align:center; margin-top:100px; width:100%;">
+            <h1>正在自动登录，请稍候... </h1>
+        </div>
+    </div>
+
+    <script>
+        var getParameterByName = function (name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        };
+
+        var userName = getParameterByName('userName'), password = getParameterByName('password');
+        if (!userName || !password) {
+            var ele = document.getElementsByTagName('h1')[0];
+            ele.innerText = '自动登录失败！ (参数错误)';
+        } else {
+            sessionStorage.userName = userName;
+            sessionStorage.password = password;
+            sessionStorage.autologin = true;
+            location.href = location.origin + "/app/index.html";
+        }
+    </script>
+</body>
+
+</html>
